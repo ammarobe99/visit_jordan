@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "547081194951",
+    "project_id": "visitjordan-d6998",
+    "storage_bucket": "visitjordan-d6998.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:547081194951:android:6dedfab16db90186cf1de2",
+        "android_client_info": {
+          "package_name": "com.example.visitjordan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "547081194951-39ddh6bfbcd6k68vi44hcjihhmluoadr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDV3XqVszJ3uFUQplY-BCDBj-fej7_431o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "547081194951-39ddh6bfbcd6k68vi44hcjihhmluoadr.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "547081194951-8n5h3pjdjpnmgtckgabn1nlder3h2rj5.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.visitjordan"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
