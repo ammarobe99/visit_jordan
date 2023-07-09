@@ -32,9 +32,7 @@ class _convertCurrencyState extends State<convertCurrency> {
     var h = MediaQuery.of(context).size.height;
     var w = MediaQuery.of(context).size.width;
     return Scaffold(
-      // appBar: AppBar(title: Text('Currency Converter'), centerTitle: true),
-
-      //Future Builder for Getting Exchange Rates
+      
       body: Container(
         height: h,
         width: w,

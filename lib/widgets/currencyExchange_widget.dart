@@ -23,7 +23,7 @@ class _AnyToAnyState extends State<AnyToAny> {
     var w = MediaQuery.of(context).size.width;
     return Card(
       child: Container(
-        // width: w / 3,
+       
         padding: EdgeInsets.all(20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -137,3 +137,4 @@ class _AnyToAnyState extends State<AnyToAny> {
     );
   }
 }
+

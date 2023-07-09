@@ -1,8 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:visit_jordan/Firebase_Services/firebase_auth.dart';
+//import 'package:visit_jordan/Firebase_Services/firebase_auth.dart';
 import 'package:visit_jordan/Screens/forgot_passwor.dart';
 import 'package:visit_jordan/Screens/signup_screen.dart';
-import 'package:visit_jordan/home-components/places2.dart';
+
 import 'package:visit_jordan/homepage.dart';
 import 'package:visit_jordan/utils/colors.dart';
 import 'package:visit_jordan/utils/utils.dart';
@@ -16,36 +17,11 @@ class LogInScreen extends StatefulWidget {
 }
 
 class _LogInScreenState extends State<LogInScreen> {
-  TextEditingController _email = TextEditingController();
-  TextEditingController _password = TextEditingController();
+  TextEditingController email = TextEditingController();
+  TextEditingController password = TextEditingController();
   bool _isLoading = false;
-
-  @override
-  void dispose() {
-    // TODO: implement dispose
-    super.dispose();
-    _email.dispose();
-    _password.dispose();
-  }
-
-  void logInUser() async {
-    setState(() {
-      _isLoading = true;
-    });
-    String res = await AuthMethods()
-        .logInUser(email: _email.text, password: _password.text);
-
-    if (res == "success") {
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => const HomePage()),
-      );
-    } else {
-      showSnackBar(context, res);
-    }
-    setState(() {
-      _isLoading = false;
-    });
-  }
+  bool _isObscure3 = true;
+  bool visible = false;
 
   void NavigateToSignUp() {
     Navigator.of(context).push(
@@ -75,6 +51,7 @@ class _LogInScreenState extends State<LogInScreen> {
                 decoration: const BoxDecoration(
                   image: DecorationImage(
                     fit: BoxFit.fill,
+                    
                     image: AssetImage('assets/petra.png'),
                   ),
                 ),
@@ -85,7 +62,7 @@ class _LogInScreenState extends State<LogInScreen> {
               ),
               //textField For email
               TextFieldInput(
-                  textEditingController: _email,
+                  textEditingController: email,
                   hintText: "enter your email",
                   textInputType: TextInputType.emailAddress),
               //spacing
@@ -93,11 +70,34 @@ class _LogInScreenState extends State<LogInScreen> {
                 height: 22,
               ),
               //textField For password
-              TextFieldInput(
-                textEditingController: _password,
-                hintText: "enter your password",
-                textInputType: TextInputType.text,
-                isPass: true,
+               TextFormField(
+              
+                controller: password,
+                obscureText: _isObscure3,
+                          decoration: InputDecoration(
+                             enabledBorder: UnderlineInputBorder(
+                              borderSide: new BorderSide(color: Colors.white),
+                              borderRadius: new BorderRadius.circular(10),
+                            ),
+                             contentPadding: const EdgeInsets.only(
+                                left: 14.0, bottom: 8.0, top: 15.0),
+                           focusedBorder: OutlineInputBorder(
+                              borderSide: new BorderSide(color: Colors.white),
+                              borderRadius: new BorderRadius.circular(10),
+                            ),
+                             hintText: "enter your password",
+                            suffixIcon: IconButton(
+                              
+                                icon: Icon(_isObscure3
+                                    ? Icons.visibility
+                                    : Icons.visibility_off),
+                                onPressed: () {
+                                  setState(() {
+                                    _isObscure3 = !_isObscure3;
+                                  });
+                                })),
+               
+               
               ),
               //spacing
               SizedBox(
@@ -105,7 +105,23 @@ class _LogInScreenState extends State<LogInScreen> {
               ),
               //log in button
               InkWell(
-                onTap: logInUser,
+                onTap: (() async {
+                try {
+                  var authopject = FirebaseAuth.instance;
+                  UserCredential myUser =
+                      await authopject.signInWithEmailAndPassword(
+                          email: email.text, password: password.text);
+                  ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text(" sucessfully log in")));
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: ((context) {
+                    return HomePage();
+                  })));
+                } catch (e) {
+                  ScaffoldMessenger.of(context)
+                      .showSnackBar(SnackBar(content: Text("wrong log in")));
+                }
+              }),
                 child: Container(
                   child: _isLoading
                       ? const Center(

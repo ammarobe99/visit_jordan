@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:visit_jordan/homepage.dart';
 
 class Test extends StatelessWidget {
   const Test({super.key});
@@ -6,6 +7,10 @@ class Test extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(actions: [IconButton(onPressed: (){
+        Navigator.of(context).push(MaterialPageRoute(builder: (context)=>HomePage()));
+        
+      }, icon: Icon(Icons.exit_to_app))]),
       body: ListView (
         children:[ Container(
          
@@ -17,8 +22,8 @@ class Test extends StatelessWidget {
                         "https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745"),
                   ),
                   
-                  title: Text("bashar-qawasmi"),
-                  subtitle: Text("aqaba,petra",style: TextStyle(color: Colors.black),),
+                  title: Text("mahmoud taani"),
+                  subtitle: Text("aqaba,petra \n for contact: 07XXXXXXXX",style: TextStyle(color: Colors.white),),
                   trailing: 
                     Icon(Icons.call),
                      
@@ -34,8 +39,8 @@ class Test extends StatelessWidget {
                       "https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745"),
                 ),
                 
-                title: Text("bashar-qawasmi"),
-                subtitle: Text("aqaba,petra",style: TextStyle(color: Colors.black),),
+                title: Text("obadah alkhateeb"),
+                subtitle: Text("karak,amman \n for contact: 07XXXXXXXX",style: TextStyle(color: Colors.white),),
                 trailing: 
                   Icon(Icons.call),
                    
@@ -50,12 +55,12 @@ class Test extends StatelessWidget {
                       "https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745"),
                 ),
                 
-                title: Text("bashar-qawasmi"),
-                subtitle: Text("aqaba,petra",style: TextStyle(color: Colors.black),),
+                title: Text("suhaib alquraan"),
+                subtitle: Text("um qais ,ajloun ,jerash \n for contact: 07XXXXXXXX",style: TextStyle(color: Colors.white),),
                 trailing: 
                 Column(children: [
                   Icon(Icons.call),
-                  Icon(Icons.chat),
+                 
                 ],)
                   
                    

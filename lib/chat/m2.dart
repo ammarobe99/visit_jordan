@@ -3,7 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-import 'm1.dart';
+import 'design.dart';
 
 class Message extends StatefulWidget {
   const Message({super.key});

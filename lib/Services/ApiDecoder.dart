@@ -16,10 +16,6 @@ class ApiDecoder {
     } else {
       print(response.statusCode);
     }
-    // print(response.body);
-    // print(response.statusCode);
-
-    // var weather = jsonDecode(response.body)['weather'][0]['main'];
-    // var temp = jsonDecode(response.body)['main']['pressure'];
+     
   }
 }

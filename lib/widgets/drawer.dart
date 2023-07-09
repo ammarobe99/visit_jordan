@@ -5,7 +5,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:visit_jordan/Screens/login_screen.dart';
 
-import 'package:visit_jordan/Screens/welcome_screen.dart';
+
+import 'package:visit_jordan/testguides.dart';
 import 'package:visit_jordan/utils/utils.dart';
 
 class MyDrawer extends StatefulWidget {
@@ -57,21 +58,9 @@ class _MyDrawerState extends State<MyDrawer> {
             ),
             decoration: BoxDecoration(
 
-                // image: DecorationImage(
-                //   image: NetworkImage(
-                //     "https://media.istockphoto.com/id/1224826528/video/light-grey-white-looped-gradient-abstract-background.jpg?b=1&s=640x640&k=20&c=QatHckhxcLGUbtYbbkKBHv3Kjr4ceCEPyB8EFWnnkYI=",
-                //   ),
-                //   fit: BoxFit.fill,
-                // ),
+              
                 ),
-            // otherAccountsPictures: [
-            //   CircleAvatar(
-            //     backgroundColor: Colors.white,
-            //     backgroundImage: NetworkImage(
-            //         "https://randomuser.me/api/portraits/women/74.jpg"),
-            //   ),
-
-            // ],
+          
           ),
           _auth.currentUser != null
               ? Container()
@@ -87,9 +76,15 @@ class _MyDrawerState extends State<MyDrawer> {
                   },
                 ),
           ListTile(
-            leading: Icon(Icons.account_box),
-            title: Text("About"),
-            onTap: () {},
+            leading: Icon(Icons.help),
+            title: Text("tourist guide"),
+           onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => Test(),
+                      ),
+                    );
+                  },
           ),
           ListTile(
             leading: Icon(Icons.grid_3x3_outlined),

@@ -33,7 +33,7 @@ class CustomizedTextfield extends StatelessWidget {
           focusedBorder: OutlineInputBorder(
               borderSide: const BorderSide(color: Color(0xffE8ECF4), width: 1),
               borderRadius: BorderRadius.circular(10)),
-          fillColor: const Color(0xffE8ECF4),
+          fillColor: Color.fromARGB(255, 8, 8, 8),
           filled: true,
           hintText: hintText,
           border: OutlineInputBorder(

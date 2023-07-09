@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:visit_jordan/home-components/places2.dart';
-import 'package:visit_jordan/home-components/places3.dart';
-import 'package:visit_jordan/home-components/places4.dart';
-import 'package:visit_jordan/home-components/places5.dart';
+import 'package:visit_jordan/Screens/home.dart';
+import 'package:visit_jordan/Screens/central.dart';
+import 'package:visit_jordan/Screens/north.dart';
+import 'package:visit_jordan/Screens/video.dart';
+
+
 
 class tobTabPar extends StatefulWidget {
   const tobTabPar({super.key});
@@ -17,7 +19,7 @@ class _tobTabParState extends State<tobTabPar>
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 4, vsync: this);
+    _tabController = TabController(length: 2, vsync: this);
   }
 
   @override
@@ -29,7 +31,8 @@ class _tobTabParState extends State<tobTabPar>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
+      appBar:
+       PreferredSize(
         preferredSize: Size.fromHeight(kToolbarHeight),
         child: Container(
           child: TabBar(
@@ -38,25 +41,21 @@ class _tobTabParState extends State<tobTabPar>
               controller: _tabController,
               tabs: <Widget>[
                 Tab(
-                  text: ("Historic"),
+                  text: (" most popular places" ),
                 ),
                 Tab(
-                  text: ("Museums"),
+                  text: ("video"),
                 ),
-                Tab(
-                  text: ("cuisine"),
-                ),
-                Tab(
-                  text: ("Hotels"),
-                ),
+               
+                
               ]),
         ),
       ),
       body: TabBarView(controller: _tabController, children: <Widget>[
-        MapsScreen(),
-        MapsScreen1(),
-        Places4(),
-        Places5()
+        
+        MyGestureDetector(),
+        VideoPlayerWidget()
+       
       ]),
     );
   }
